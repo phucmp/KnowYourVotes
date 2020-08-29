@@ -1,4 +1,4 @@
-# Know Your Votes [Version 0.0.1]
+# Know Your Votes [Version Unreleased]
 Web application to allow users to understand how electoral college votes affect the US election.
 This website is built with HTML/CSS and Vue.js from scratch.
 
