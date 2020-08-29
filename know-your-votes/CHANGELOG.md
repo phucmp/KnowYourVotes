@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 ### Added
+- Created home page with scroll feature on same page
+- Added Bootstrap Vue
 
 ### Changed
 
