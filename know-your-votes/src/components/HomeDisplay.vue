@@ -13,14 +13,18 @@
                 </div>
             </div>
         </div>
-        <div class="vh-100" ref="map">
-            <h1>Map Wrapper</h1>
+        <div class="vh-100 border" ref="map">
+            <map-display/>
         </div>
     </div>
 </template>
 
 <script>
+import MapDisplay from './MapDisplay.vue'
 export default {
+    components: {
+        MapDisplay
+    },
     methods: {
         scrollTo: function(refName) {
             this.$nextTick(() => {
