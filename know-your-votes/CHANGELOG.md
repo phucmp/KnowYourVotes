@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Bootstrap Vue
 - Add background
 - Centered content in div sections
-- Add vue svg map 
+- Add vue svg checkbox map
 
 ### Changed
 - Updated Main Home Section with responsiveness
