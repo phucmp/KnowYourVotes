@@ -22,19 +22,24 @@ export default {
                 //   // Modify each location to customize/add attributes of <path>
                 // })
             },
-            selectedLocations: []
+            selectedLocations: [],
+            selected: []
         }
     },
     methods: {
       onClick(event) {
-        console.log(event.srcElement.id);
-        console.log(this.selectedLocations);
+        if (event.target.classList.contains('democrat')) {
+          event.target.classList.remove('democrat');
+          event.target.classList.add('republican');
+        } else if (event.target.classList.contains('republican')) {
+          event.target.classList.remove('republican');
+        } else {
+          event.target.classList.add('democrat');
+        }
       }
     },
     beforeUpdate: function() {
-      alert('BEFORE UPDATE');
-      console.log(event.srcElement.id);
-      console.log(this.selectedLocations);
+      
     }
 }
 </script>
@@ -52,12 +57,17 @@ export default {
   fill: #bdbec7;
   cursor: pointer; 
 }
-.svg-map__location:focus, .svg-map__location:hover {
+.svg-map__location:hover {
   /* fill: #1494E9; */
-  fill: #ED3537;
+  fill: black !important;
+}
+.svg-map__location:focus {
   outline: 0; 
 }
-.svg-map__location[aria-checked="true"] {
-  fill: #1494E9; 
+.democrat {
+  fill: #1494E9 !important;
+}
+.republican {
+  fill: #ED3537 !important;
 }
 </style>

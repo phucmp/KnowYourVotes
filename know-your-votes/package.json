@@ -8,7 +8,6 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@amcharts/amcharts4": "^4.10.0",
     "@svg-maps/usa": "^1.1.1",
     "@svg-maps/usa.counties": "^1.1.2",
     "bootstrap": "^4.5.2",
