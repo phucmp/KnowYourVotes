@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <checkbox-svg-map v-model="selectedLocations" :map="customUSA" @click="onClick" />
     </div>
 </template>
@@ -27,11 +27,14 @@ export default {
     },
     methods: {
       onClick(event) {
-        console.log(event);
+        console.log(event.srcElement.id);
+        console.log(this.selectedLocations);
       }
     },
     beforeUpdate: function() {
-      alert('hi');
+      alert('BEFORE UPDATE');
+      console.log(event.srcElement.id);
+      console.log(this.selectedLocations);
     }
 }
 </script>
