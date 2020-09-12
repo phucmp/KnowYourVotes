@@ -1,6 +1,12 @@
 <template>
     <div class="container">
-        <checkbox-svg-map v-model="selectedLocations" :map="customUSA" @click="onClick" />
+        <checkbox-svg-map v-model="selectedLocations" :map="customUSA" @click="onClick">
+          <template v-slot:after>
+            <text v-for="(state, index) in states" :key="index" style="font-size: 24px;">
+              <textPath :xlink:href="'#'+state" startOffset="50%" text-anchor="middle">{{state}}</textPath>
+            </text>
+          </template>
+        </checkbox-svg-map>
     </div>
 </template>
 
@@ -23,23 +29,22 @@ export default {
                 // })
             },
             selectedLocations: [],
-            selected: []
+            states: [ "al", "ak", "az", "ar", "ca", "co", "ct", "dc", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md", "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"]
         }
     },
     methods: {
       onClick(event) {
+        console.log(event.target.parentElement);
         if (event.target.classList.contains('democrat')) {
           event.target.classList.remove('democrat');
           event.target.classList.add('republican');
+          event.target.innerHTML = "click";
         } else if (event.target.classList.contains('republican')) {
           event.target.classList.remove('republican');
         } else {
           event.target.classList.add('democrat');
         }
       }
-    },
-    beforeUpdate: function() {
-      
     }
 }
 </script>
