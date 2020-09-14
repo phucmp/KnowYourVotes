@@ -1,78 +1,80 @@
 <template>
-    <div class="container">
-        <checkbox-svg-map v-model="selectedLocations" :map="customUSA" @click="onClick">
-          <template v-slot:after>
-            <text v-for="(state, index) in states" :key="index" style="font-size: 24px;">
-              <textPath :xlink:href="'#'+state" startOffset="50%" text-anchor="middle">{{state}}</textPath>
-            </text>
-          </template>
-        </checkbox-svg-map>
-    </div>
+  <svg/>
 </template>
 
 <script>
-import { CheckboxSvgMap } from "vue-svg-map";
-import USA from "@svg-maps/usa";
+import * as d3 from 'd3'
+import * as topojson from "topojson-client";
 
 export default {
-    name: "MyMap",
-    components: {
-        CheckboxSvgMap
-    },
-    data() {
-        return {
-            customUSA: {
-                ...USA,
-                label: "US MAP",
-                // locations: USA.locations.map(location => {
-                //   // Modify each location to customize/add attributes of <path>
-                // })
-            },
-            selectedLocations: [],
-            states: [ "al", "ak", "az", "ar", "ca", "co", "ct", "dc", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md", "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"]
-        }
-    },
-    methods: {
-      onClick(event) {
-        console.log(event.target.parentElement);
-        if (event.target.classList.contains('democrat')) {
-          event.target.classList.remove('democrat');
-          event.target.classList.add('republican');
-          event.target.innerHTML = "click";
-        } else if (event.target.classList.contains('republican')) {
-          event.target.classList.remove('republican');
-        } else {
-          event.target.classList.add('democrat');
-        }
-      }
+  mounted: function() {
+    this.display();
+  },
+  methods: {
+    display() {
+      var width = 1200;
+      var height = 800;
+      var svg = d3.select(this.$el).attr('width', width).attr('height', height);
+      var projection = d3.geoAlbersUsa().scale(1500).translate([width / 2, height / 2]);
+      var path = d3.geoPath().projection(projection);
+
+      d3.json("us.json").then(function(response) {
+        var group = svg.append('g');
+
+        group.selectAll('.state')
+          .data(topojson.feature(response, response.objects.usStates).features)
+          .enter()
+          .append("path")
+          .attr("class", "state")
+          .attr("d", path)
+          .on('click', function(d) {
+            if (this.classList.contains('democrat')) {
+              this.classList.remove('democrat');
+              this.classList.add('republican');
+            } else if (this.classList.contains('republican')) {
+              this.classList.remove('republican');
+            } else {
+              this.classList.add('democrat');
+            }
+          });
+
+        group.selectAll("text")
+          .data(topojson.feature(response, response.objects.usStates).features)
+          .enter()
+          .append("svg:text")
+          .text(function(d){
+            return d.properties.STATE_ABBR;
+          })
+          .attr("x", function(d){
+              return path.centroid(d)[0];
+          })
+          .attr("y", function(d){
+              return  path.centroid(d)[1];
+          })
+          .attr("pointer-events", "none")
+          .attr("text-anchor","middle")
+          .attr("stroke", "black")
+          .attr("fill", "none")
+          .attr('font-size','10pt');
+      });
     }
+  }
 }
 </script>
 
 <style>
-.svg-map {
-  width: 100%;
-  height: auto;
+.state {
+  fill: #ccc;
   stroke: #fff;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round; 
 }
-.svg-map__location {
-  fill: #bdbec7;
+.state:hover {
+  opacity: 50%;
   cursor: pointer; 
 }
-.svg-map__location:hover {
-  /* fill: #1494E9; */
-  fill: black !important;
-}
-.svg-map__location:focus {
-  outline: 0; 
-}
 .democrat {
-  fill: #1494E9 !important;
+  fill: #1494E9;
 }
 .republican {
-  fill: #ED3537 !important;
+  fill: #ED3537;
 }
 </style>

@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Bootstrap Vue
 - Add background
 - Centered content in div sections
-- Add vue svg checkbox map
+- Added D3 to display map with labels
+- Added JSON object for us states data
 
 ### Changed
 - Updated Main Home Section with responsiveness
@@ -19,3 +20,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Removed
+- Removed map router vue file
