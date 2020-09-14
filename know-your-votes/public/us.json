@@ -29,7 +29,10 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "HI"
+              "STATE_ABBR": "HI",
+              "DX": 20,
+              "DY": 25,
+              "VOTES": 4
             }
           },
           {
@@ -42,7 +45,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "WA"
+              "STATE_ABBR": "WA",
+              "VOTES": 12
             }
           },
           {
@@ -57,7 +61,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MT"
+              "STATE_ABBR": "MT",
+              "VOTES": 3
             }
           },
           {
@@ -69,7 +74,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "ME"
+              "STATE_ABBR": "ME",
+              "VOTES": 4
             }
           },
           {
@@ -83,7 +89,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "ND"
+              "STATE_ABBR": "ND",
+              "VOTES": 3
             }
           },
           {
@@ -99,7 +106,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "SD"
+              "STATE_ABBR": "SD",
+              "VOTES": 3
             }
           },
           {
@@ -115,7 +123,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "WY"
+              "STATE_ABBR": "WY",
+              "VOTES": 3
             }
           },
           {
@@ -138,7 +147,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "WI"
+              "STATE_ABBR": "WI",
+              "VOTES": 10
             }
           },
           {
@@ -155,7 +165,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "ID"
+              "STATE_ABBR": "ID",
+              "VOTES": 4
             }
           },
           {
@@ -169,7 +180,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "VT"
+              "STATE_ABBR": "VT",
+              "VOTES": 3
             }
           },
           {
@@ -184,7 +196,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MN"
+              "STATE_ABBR": "MN",
+              "VOTES": 10
             }
           },
           {
@@ -199,7 +212,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "OR"
+              "STATE_ABBR": "OR",
+              "VOTES": 7
             }
           },
           {
@@ -214,7 +228,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NH"
+              "STATE_ABBR": "NH",
+              "VOTES": 4
             }
           },
           {
@@ -230,7 +245,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "IA"
+              "STATE_ABBR": "IA",
+              "VOTES": 6
             }
           },
           {
@@ -246,7 +262,9 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MA"
+              "STATE_ABBR": "MA",
+              "DX": 40,
+              "VOTES": 11
             }
           },
           {
@@ -262,7 +280,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NE"
+              "STATE_ABBR": "NE",
+              "VOTES": 5
             }
           },
           {
@@ -279,7 +298,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NY"
+              "STATE_ABBR": "NY",
+              "VOTES": 29
             }
           },
           {
@@ -296,7 +316,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "PA"
+              "STATE_ABBR": "PA",
+              "VOTES": 20
             }
           },
           {
@@ -310,7 +331,9 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "CT"
+              "STATE_ABBR": "CT",
+              "DY": 5,
+              "VOTES": 7
             }
           },
           {
@@ -323,7 +346,10 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "RI"
+              "STATE_ABBR": "RI",
+              "DX": 7,
+              "DY": 20,
+              "VOTES": 4
             }
           },
           {
@@ -337,7 +363,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NJ"
+              "STATE_ABBR": "NJ",
+              "VOTES": 14
             }
           },
           {
@@ -352,7 +379,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "IN"
+              "STATE_ABBR": "IN",
+              "VOTES": 11
             }
           },
           {
@@ -367,7 +395,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NV"
+              "STATE_ABBR": "NV",
+              "VOTES": 6
             }
           },
           {
@@ -382,7 +411,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "UT"
+              "STATE_ABBR": "UT",
+              "VOTES": 6
             }
           },
           {
@@ -396,7 +426,9 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "CA"
+              "STATE_ABBR": "CA",
+              "DX": -15,
+              "VOTES": 55
             }
           },
           {
@@ -412,7 +444,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "OH"
+              "STATE_ABBR": "OH",
+              "VOTES": 18
             }
           },
           {
@@ -428,12 +461,14 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "IL"
+              "STATE_ABBR": "IL",
+              "VOTES": 20
             }
           },
           {
             "properties": {
-              "STATE_ABBR": "DC"
+              "STATE_ABBR": "DC",
+              "VOTES": 3
             }
           },
           {
@@ -447,7 +482,10 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "DE"
+              "STATE_ABBR": "DE",
+              "DX": 15,
+              "DY": 5,
+              "VOTES": 3
             }
           },
           {
@@ -462,7 +500,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "WV"
+              "STATE_ABBR": "WV",
+              "VOTES": 5
             }
           },
           {
@@ -477,7 +516,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MD"
+              "STATE_ABBR": "MD",
+              "VOTES": 10
             }
           },
           {
@@ -493,7 +533,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "CO"
+              "STATE_ABBR": "CO",
+              "VOTES": 9
             }
           },
           {
@@ -510,7 +551,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "KY"
+              "STATE_ABBR": "KY",
+              "VOTES": 8
             }
           },
           {
@@ -524,7 +566,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "KS"
+              "STATE_ABBR": "KS",
+              "VOTES": 6
             }
           },
           {
@@ -540,7 +583,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "VA"
+              "STATE_ABBR": "VA",
+              "VOTES": 13
             }
           },
           {
@@ -558,7 +602,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MO"
+              "STATE_ABBR": "MO",
+              "VOTES": 10
             }
           },
           {
@@ -573,7 +618,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "AZ"
+              "STATE_ABBR": "AZ",
+              "VOTES": 11
             }
           },
           {
@@ -589,7 +635,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "OK"
+              "STATE_ABBR": "OK",
+              "VOTES": 7
             }
           },
           {
@@ -604,7 +651,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NC"
+              "STATE_ABBR": "NC",
+              "VOTES": 15
             }
           },
           {
@@ -622,7 +670,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "TN"
+              "STATE_ABBR": "TN",
+              "VOTES": 11
             }
           },
           {
@@ -637,7 +686,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "TX"
+              "STATE_ABBR": "TX",
+              "VOTES": 38
             }
           },
           {
@@ -652,7 +702,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "NM"
+              "STATE_ABBR": "NM",
+              "VOTES": 10
             }
           },
           {
@@ -667,7 +718,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "AL"
+              "STATE_ABBR": "AL",
+              "VOTES": 9
             }
           },
           {
@@ -682,7 +734,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MS"
+              "STATE_ABBR": "MS",
+              "VOTES": 6
             }
           },
           {
@@ -698,7 +751,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "GA"
+              "STATE_ABBR": "GA",
+              "VOTES": 16
             }
           },
           {
@@ -711,7 +765,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "SC"
+              "STATE_ABBR": "SC",
+              "VOTES": 9
             }
           },
           {
@@ -727,7 +782,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "AR"
+              "STATE_ABBR": "AR",
+              "VOTES": 6
             }
           },
           {
@@ -741,7 +797,9 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "LA"
+              "STATE_ABBR": "LA",
+              "DX": -10,
+              "VOTES": 8
             }
           },
           {
@@ -754,7 +812,9 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "FL"
+              "STATE_ABBR": "FL",
+              "DX": 15,
+              "VOTES": 29
             }
           },
           {
@@ -780,7 +840,10 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "MI"
+              "STATE_ABBR": "MI",
+              "DX": 10,
+              "DY": 10,
+              "VOTES": 16
             }
           },
           {
@@ -863,7 +926,8 @@
               ]
             ],
             "properties": {
-              "STATE_ABBR": "AK"
+              "STATE_ABBR": "AK",
+              "VOTES": 3
             }
           }
         ]
