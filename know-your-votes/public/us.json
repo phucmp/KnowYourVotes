@@ -466,12 +466,6 @@
             }
           },
           {
-            "properties": {
-              "STATE_ABBR": "DC",
-              "VOTES": 3
-            }
-          },
-          {
             "type": "Polygon",
             "arcs": [
               [

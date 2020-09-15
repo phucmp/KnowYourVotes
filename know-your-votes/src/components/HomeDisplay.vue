@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="vh-100 border" ref="map">
+        <div class="vh-100" ref="map">
             <map-display/>
         </div>
     </div>

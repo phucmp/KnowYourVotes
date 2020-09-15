@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <svg/>
-    <div>
+  <div class="vh-100 container-fluid">
+    <svg class="svg-map"></svg>
+    <div class="">
       TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.dem}}
       TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.rep}}
     </div>
@@ -27,11 +27,10 @@ export default {
   methods: {
     display() {
       var vm = this;
-      var width = 1200;
-      var height = 800;
-      console.log(this.$el.firstElementChild);
-      var svg = d3.select(this.$el.firstElementChild).attr('width', width).attr('height', height);
-      var projection = d3.geoAlbersUsa().scale(1500).translate([width / 2, height / 2]);
+      var width = this.$el.offsetWidth;
+      var height = this.$el.offsetHeight;
+      var svg = d3.select('.svg-map')
+      var projection = d3.geoAlbersUsa().translate([width / 2, height / 2]).scale(width);
       var path = d3.geoPath().projection(projection);
 
       d3.json("us.json").then(function(response) {
@@ -44,18 +43,7 @@ export default {
           .attr("class", "state")
           .attr("d", path)
           .on('click', function(event, d) {
-            if (this.classList.contains('democrat')) {
-              this.classList.remove('democrat');
-              this.classList.add('republican');
-              vm.totalVotes.dem -= d.properties.VOTES;
-              vm.totalVotes.rep += d.properties.VOTES;
-            } else if (this.classList.contains('republican')) {
-              this.classList.remove('republican');
-              vm.totalVotes.rep -= d.properties.VOTES;
-            } else {
-              this.classList.add('democrat');
-              vm.totalVotes.dem += d.properties.VOTES;
-            }
+            vm.setParty(this, vm, d);
           });
 
         group.selectAll("text")
@@ -66,31 +54,45 @@ export default {
             return d.properties.STATE_ABBR;
           })
           .attr("x", function(d){
-              return path.centroid(d)[0] + ( d.properties.DX || 0 );
+              return path.centroid(d)[0]; //+ ( d.properties.DX || 0 );
           })
           .attr("y", function(d){
-              return  path.centroid(d)[1] + ( d.properties.DY || 0 );
+              return  path.centroid(d)[1]; // + ( d.properties.DY || 0 );
           })
-          .attr("pointer-events", "none")
-          .attr("text-anchor","middle")
-          .attr("stroke", "black")
-          .attr("fill", "none")
-          .attr('font-size','10pt')
+          .attr("class", "state-text")
           .append('svg:tspan')
           .attr("x", function(d){
-              return path.centroid(d)[0] + ( d.properties.DX || 0 );
+              return path.centroid(d)[0];// + ( d.properties.DX || 0 );
           })
           .attr('dy', 15)
           .text(function(d) { 
             return d.properties.VOTES; 
           });
       });
+    },
+    setParty(elem, vm, d) {
+      if (elem.classList.contains('democrat')) {
+        elem.classList.remove('democrat');
+        elem.classList.add('republican');
+        vm.totalVotes.dem -= d.properties.VOTES;
+        vm.totalVotes.rep += d.properties.VOTES;
+      } else if (elem.classList.contains('republican')) {
+        elem.classList.remove('republican');
+        vm.totalVotes.rep -= d.properties.VOTES;
+      } else {
+        elem.classList.add('democrat');
+        vm.totalVotes.dem += d.properties.VOTES;
+      }
     }
   }
 }
 </script>
 
 <style>
+.svg-map {
+  height: 100%;
+  width: 100%;
+}
 .state {
   fill: #ccc;
   stroke: #fff;
@@ -105,5 +107,24 @@ export default {
 }
 .republican {
   fill: #ED3537;
+}
+.state-text {
+  pointer-events: none;
+  text-anchor: middle;
+  stroke: black;
+  fill: none;
+  font-size: 10pt;
+}
+
+@media only screen and (max-width: 1015px) {
+
+}
+
+@media only screen and (max-width: 700px) {
+
+}
+
+@media only screen and (max-width: 400px) {
+
 }
 </style>
