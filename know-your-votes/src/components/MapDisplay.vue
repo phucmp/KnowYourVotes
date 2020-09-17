@@ -2,8 +2,8 @@
   <div class="vh-100 container-fluid">
     <svg class="svg-map"></svg>
     <div class="">
-      TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.dem}}
-      TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.rep}}
+      TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.rep}}
+      TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.dem}}
     </div>
   </div>
 </template>
