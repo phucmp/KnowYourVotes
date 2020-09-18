@@ -1,10 +1,10 @@
 <template>
   <div class="vh-100 container-fluid">
-    <svg class="map"></svg>
-    <div class="">
+    <div class="mt-5">
       TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.rep}}
       TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.dem}}
     </div>
+    <svg class="map mt-3"></svg>
   </div>
 </template>
 
@@ -27,11 +27,7 @@ export default {
   methods: {
     display() {
       var vm = this;
-      var width = this.$el.offsetWidth;
-      var height = this.$el.offsetHeight;
-      console.log(width);
-      console.log(height);
-      var svg = d3.select('.map').attr('viewBox', "-100 0 1100 500")
+      var svg = d3.select('.map').attr('viewBox', "-100 0 1100 550")
       var projection = d3.geoAlbersUsa();
       var path = d3.geoPath().projection(projection);
 
@@ -56,15 +52,24 @@ export default {
             return d.properties.STATE_ABBR;
           })
           .attr("x", function(d){
-              return path.centroid(d)[0]; //+ ( d.properties.DX || 0 );
+            return path.centroid(d)[0];
+          })
+          .attr("dx", function(d){
+            return d.properties.DX || 0;
           })
           .attr("y", function(d){
-              return  path.centroid(d)[1]; // + ( d.properties.DY || 0 );
+              return  path.centroid(d)[1];
+          })
+          .attr("dy", function(d){
+            return d.properties.DY || 0;
           })
           .attr("class", "state-text")
           .append('svg:tspan')
           .attr("x", function(d){
-              return path.centroid(d)[0];// + ( d.properties.DX || 0 );
+              return path.centroid(d)[0];
+          })
+          .attr("dx", function(d){
+            return d.properties.DX || 0;
           })
           .attr('dy', 15)
           .text(function(d) { 
@@ -118,8 +123,9 @@ export default {
   pointer-events: none;
   text-anchor: middle;
   stroke: black;
+  font-weight: lighter;
   fill: none;
-  font-size: 8pt;
+  font-size: 7pt;
 }
 
 @media only screen and (max-width: 1015px) {

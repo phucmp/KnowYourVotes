@@ -30,8 +30,8 @@
             ],
             "properties": {
               "STATE_ABBR": "HI",
-              "DX": 20,
-              "DY": 25,
+              "DX": 16,
+              "DY": 21,
               "VOTES": 4
             }
           },
@@ -166,7 +166,8 @@
             ],
             "properties": {
               "STATE_ABBR": "ID",
-              "VOTES": 4
+              "VOTES": 4,
+              "DY": 5
             }
           },
           {
@@ -263,7 +264,7 @@
             ],
             "properties": {
               "STATE_ABBR": "MA",
-              "DX": 40,
+              "DX": 30,
               "VOTES": 11
             }
           },
@@ -299,7 +300,9 @@
             ],
             "properties": {
               "STATE_ABBR": "NY",
-              "VOTES": 29
+              "VOTES": 29,
+              "DX": 5,
+              "DY": -5
             }
           },
           {
@@ -317,7 +320,8 @@
             ],
             "properties": {
               "STATE_ABBR": "PA",
-              "VOTES": 20
+              "VOTES": 20,
+              "DY": -3
             }
           },
           {
@@ -332,7 +336,8 @@
             ],
             "properties": {
               "STATE_ABBR": "CT",
-              "DY": 5,
+              "DX": 2,
+              "DY": 16,
               "VOTES": 7
             }
           },
@@ -348,7 +353,7 @@
             "properties": {
               "STATE_ABBR": "RI",
               "DX": 7,
-              "DY": 20,
+              "DY": 15,
               "VOTES": 4
             }
           },
@@ -427,7 +432,7 @@
             ],
             "properties": {
               "STATE_ABBR": "CA",
-              "DX": -15,
+              "DX": -10,
               "VOTES": 55
             }
           },
@@ -546,7 +551,9 @@
             ],
             "properties": {
               "STATE_ABBR": "KY",
-              "VOTES": 8
+              "VOTES": 8,
+              "DX": 7,
+              "DY": -6
             }
           },
           {
@@ -578,7 +585,8 @@
             ],
             "properties": {
               "STATE_ABBR": "VA",
-              "VOTES": 13
+              "VOTES": 13,
+              "DY": -3
             }
           },
           {
@@ -646,7 +654,8 @@
             ],
             "properties": {
               "STATE_ABBR": "NC",
-              "VOTES": 15
+              "VOTES": 15,
+              "DY": -5
             }
           },
           {
@@ -665,7 +674,8 @@
             ],
             "properties": {
               "STATE_ABBR": "TN",
-              "VOTES": 11
+              "VOTES": 11,
+              "DY": -3
             }
           },
           {
@@ -793,6 +803,7 @@
             "properties": {
               "STATE_ABBR": "LA",
               "DX": -10,
+              "DY": -5,
               "VOTES": 8
             }
           },
@@ -807,7 +818,7 @@
             ],
             "properties": {
               "STATE_ABBR": "FL",
-              "DX": 15,
+              "DX": 13,
               "VOTES": 29
             }
           },
@@ -921,7 +932,8 @@
             ],
             "properties": {
               "STATE_ABBR": "AK",
-              "VOTES": 3
+              "VOTES": 3,
+              "DY": -10
             }
           }
         ]
