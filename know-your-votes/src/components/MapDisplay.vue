@@ -1,6 +1,6 @@
 <template>
   <div class="vh-100 container-fluid">
-    <svg class="svg-map"></svg>
+    <svg class="map"></svg>
     <div class="">
       TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.rep}}
       TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.dem}}
@@ -29,8 +29,10 @@ export default {
       var vm = this;
       var width = this.$el.offsetWidth;
       var height = this.$el.offsetHeight;
-      var svg = d3.select('.svg-map')
-      var projection = d3.geoAlbersUsa().translate([width / 2, height / 2]).scale(width);
+      console.log(width);
+      console.log(height);
+      var svg = d3.select('.map').attr('viewBox', "-100 0 1100 500")
+      var projection = d3.geoAlbersUsa();
       var path = d3.geoPath().projection(projection);
 
       d3.json("us.json").then(function(response) {
@@ -89,9 +91,13 @@ export default {
 </script>
 
 <style>
-.svg-map {
-  height: 100%;
+.map {
   width: 100%;
+  height: auto;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round; 
 }
 .state {
   fill: #ccc;
@@ -113,7 +119,7 @@ export default {
   text-anchor: middle;
   stroke: black;
   fill: none;
-  font-size: 10pt;
+  font-size: 8pt;
 }
 
 @media only screen and (max-width: 1015px) {
