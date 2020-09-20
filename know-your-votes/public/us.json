@@ -369,7 +369,9 @@
             ],
             "properties": {
               "STATE_ABBR": "NJ",
-              "VOTES": 14
+              "VOTES": 14,
+              "DX": 17,
+              "DY": 4
             }
           },
           {

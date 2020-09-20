@@ -5,6 +5,16 @@
       TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.dem}}
     </div>
     <svg class="map mt-3"></svg>
+    <div>
+      <p>Smaller States Buttons</p>
+      <div class="container">
+        <div class="row m-auto">
+          <div v-for="(state, index) in states" :key="index" class="col-lg-2">
+            <p @click="triggerStateParty" :id="state.id" class="small-state"><b>{{state.abbr}}</b><br>{{state.votes}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -18,7 +28,40 @@ export default {
       totalVotes: {
         dem: 0,
         rep: 0
-      }
+      },
+      smallStates: [ "MA", "RI", "CT", "NJ", "DE", "MD" ],
+      states: [
+        {
+          id: "ma",
+          abbr: "MA",
+          votes: 11
+        },
+        {
+          id: "ri",
+          abbr: "RI",
+          votes: 4
+        },
+        {
+          id: "ct",
+          abbr: "CT",
+          votes: 7
+        },
+        {
+          id: "nj",
+          abbr: "NJ",
+          votes: 14
+        },
+        {
+          id: "de",
+          abbr: "DE",
+          votes: 3
+        },
+        {
+          id: "md",
+          abbr: "MD",
+          votes: 10
+        }
+      ]
     }
   },
   mounted: function() {
@@ -27,7 +70,7 @@ export default {
   methods: {
     display() {
       var vm = this;
-      var svg = d3.select('.map').attr('viewBox', "-100 0 1100 550")
+      var svg = d3.select('.map').attr('viewBox', "-75 0 1100 550")
       var projection = d3.geoAlbersUsa();
       var path = d3.geoPath().projection(projection);
 
@@ -40,6 +83,9 @@ export default {
           .append("path")
           .attr("class", "state")
           .attr("d", path)
+          .attr("id", function(d) {
+            return d.properties.STATE_ABBR
+          })
           .on('click', function(event, d) {
             vm.setParty(this, vm, d);
           });
@@ -73,7 +119,9 @@ export default {
           })
           .attr('dy', 15)
           .text(function(d) { 
-            return d.properties.VOTES; 
+            if (vm.smallStates.indexOf(d.properties.STATE_ABBR) === -1) {
+              return d.properties.VOTES; 
+            }
           });
       });
     },
@@ -90,6 +138,9 @@ export default {
         elem.classList.add('democrat');
         vm.totalVotes.dem += d.properties.VOTES;
       }
+    },
+    triggerStateParty(event) {
+      document.getElementById(event.target.id.toString().toUpperCase()).dispatchEvent(new Event('click'));
     }
   }
 }
@@ -127,16 +178,17 @@ export default {
   fill: none;
   font-size: 7pt;
 }
-
-@media only screen and (max-width: 1015px) {
-
+.small-state {
+  border-radius: 25px;
+  border-style: solid;
+  border-width: thin;
+  color: black;
+  border-color: #ccc;
+  background-color: #ccc;
+  font-size: 11pt
 }
-
-@media only screen and (max-width: 700px) {
-
-}
-
-@media only screen and (max-width: 400px) {
-
+.small-state:hover {
+  opacity: 50%;
+  cursor: pointer;
 }
 </style>
