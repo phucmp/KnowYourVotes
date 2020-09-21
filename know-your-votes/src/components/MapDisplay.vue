@@ -6,11 +6,21 @@
     </div>
     <svg class="map mt-3"></svg>
     <div>
-      <p>Smaller States Buttons</p>
+      <p>Smaller States</p>
       <div class="container">
-        <div class="row m-auto">
-          <div v-for="(state, index) in states" :key="index" class="col-lg-2">
-            <p @click="triggerStateParty" :id="state.id" class="small-state"><b>{{state.abbr}}</b><br>{{state.votes}}</p>
+        <div class="row col-9 m-auto">
+          <div v-for="(state, index) in smallStates" :key="index" class="col-lg-1 m-auto p-2">
+            <p @click="triggerStateParty" :id="state.id" class="small-state">{{state.abbr}}<br>{{state.votes}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>Split States</p>
+      <div class="container">
+        <div class="row col-9 m-auto">
+          <div v-for="(state, index) in splitStates" :key="index" class="col-lg-1 m-auto p-2">
+            <p @click="triggerStateParty" :id="state.id" class="small-state">{{state.abbr}}<br>{{state.votes}}</p>
           </div>
         </div>
       </div>
@@ -29,8 +39,8 @@ export default {
         dem: 0,
         rep: 0
       },
-      smallStates: [ "MA", "RI", "CT", "NJ", "DE", "MD" ],
-      states: [
+      smallStatesAbbr: [ "MA", "RI", "CT", "NJ", "DE", "MD" ],
+      smallStates: [
         {
           id: "ma",
           abbr: "MA",
@@ -60,7 +70,50 @@ export default {
           id: "md",
           abbr: "MD",
           votes: 10
+        },
+        {
+          id: "dc",
+          abbr: "DC",
+          votes: 3
         }
+      ],
+      dcParty: "",
+      splitStates: [
+        {
+          id: "ne",
+          abbr: "NE",
+          votes: 2
+        },
+        {
+          id: "ne1",
+          abbr: "D1",
+          votes: 1
+        },
+        {
+          id: "ne2",
+          abbr: "D2",
+          votes: 1
+        },
+        {
+          id: "ne3",
+          abbr: "D3",
+          votes: 1
+        },
+        {
+          id: "me",
+          abbr: "ME",
+          votes: 2
+        },
+        {
+          id: "me1",
+          abbr: "D1",
+          votes: 1
+        },
+        {
+          id: "me2",
+          abbr: "D2",
+          votes: 1
+        },
       ]
     }
   },
@@ -119,7 +172,7 @@ export default {
           })
           .attr('dy', 15)
           .text(function(d) { 
-            if (vm.smallStates.indexOf(d.properties.STATE_ABBR) === -1) {
+            if (vm.smallStatesAbbr.indexOf(d.properties.STATE_ABBR) === -1) {
               return d.properties.VOTES; 
             }
           });
@@ -140,7 +193,28 @@ export default {
       }
     },
     triggerStateParty(event) {
-      document.getElementById(event.target.id.toString().toUpperCase()).dispatchEvent(new Event('click'));
+      if (event.target.classList.contains('dem')) {
+        event.target.classList.remove('dem');
+        event.target.classList.add('rep');
+      } else if (event.target.classList.contains('rep')) {
+        event.target.classList.remove('rep');
+      } else {
+        event.target.classList.add('dem');
+      }
+
+      if (event.target.id !== "dc") {
+        document.getElementById(event.target.id.toString().toUpperCase()).dispatchEvent(new Event('click'));
+      } else if (this.dcParty === "") {
+        this.totalVotes.dem += 3;
+        this.dcParty = "dem";
+      } else if (this.dcParty === "dem") {
+        this.totalVotes.dem -= 3;
+        this.totalVotes.rep += 3;
+        this.dcParty = "rep";
+      } else {
+        this.totalVotes.rep -= 3;
+        this.dcParty = "";
+      }
     }
   }
 }
@@ -164,8 +238,14 @@ export default {
   opacity: 50%;
   cursor: pointer; 
 }
+.dem {
+  background-color: #1494E9 !important;
+}
 .democrat {
   fill: #1494E9;
+}
+.rep {
+  background-color: #ED3537 !important;
 }
 .republican {
   fill: #ED3537;
@@ -185,7 +265,8 @@ export default {
   color: black;
   border-color: #ccc;
   background-color: #ccc;
-  font-size: 11pt
+  font-size: 11pt;
+  font-weight: bold;
 }
 .small-state:hover {
   opacity: 50%;
