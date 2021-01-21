@@ -3,6 +3,7 @@
     <div class="mt-5">
       TOTAL REPUBLICAN ELECTORAL VOTE: {{totalVotes.rep}}
       TOTAL DEMOCRAT ELECTORAL VOTE: {{totalVotes.dem}}
+      TOTAL ELECTOARL VOTE REMAING: {{totalVotes.rep}} + {{totalVotes.dem}}
     </div>
     <svg class="map mt-3"></svg>
     <div>
